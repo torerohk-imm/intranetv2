@@ -54,6 +54,7 @@ return [
     ['GET', '/repositorio', [DocumentController::class, 'index']],
     ['POST', '/repositorio/carpeta', [DocumentController::class, 'storeFolder']],
     ['POST', '/repositorio/documento', [DocumentController::class, 'storeDocument']],
+    ['GET', '/repositorio/documento/descargar', [DocumentController::class, 'downloadDocument']],
     ['POST', '/repositorio/documento/eliminar', [DocumentController::class, 'destroyDocument']],
 
     ['GET', '/administracion', [AdminController::class, 'index']],

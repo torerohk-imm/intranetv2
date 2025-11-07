@@ -35,7 +35,16 @@ class AuthController extends Controller
             flash('danger', 'Credenciales inválidas.');
             redirect('/login');
         }
-        $_SESSION['user'] = $user;
+        unset($user['password']);
+        session_regenerate_id(true);
+        $_SESSION['user'] = [
+            'id' => $user['id'],
+            'name' => $user['name'],
+            'email' => $user['email'],
+            'role_id' => $user['role_id'],
+            'role_name' => $user['role_name'],
+            'role_slug' => $user['role_slug'],
+        ];
         try {
             $prefs = (new \App\Models\UserPreference(db()))->forUser($user['id']);
             if (isset($prefs['theme'])) {
@@ -50,7 +59,15 @@ class AuthController extends Controller
 
     public function logout()
     {
-        session_destroy();
+        if (session_status() === PHP_SESSION_ACTIVE) {
+            $_SESSION = [];
+            if (ini_get('session.use_cookies')) {
+                $params = session_get_cookie_params();
+                setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
+            }
+            session_regenerate_id(true);
+            session_destroy();
+        }
         redirect('/login');
     }
 }

@@ -17,19 +17,19 @@
                 <div class="row g-3">
                     <div class="col-md-6">
                         <label class="form-label">Color primario</label>
-                        <input type="color" name="primary_color" class="form-control form-control-color" value="<?= htmlspecialchars($branding['primary_color'] ?? '#0d6efd') ?>">
+                        <input type="color" name="primary_color" class="form-control form-control-color" value="<?= htmlspecialchars($branding['primary_color'] ?? '#051223') ?>">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Color secundario</label>
-                        <input type="color" name="secondary_color" class="form-control form-control-color" value="<?= htmlspecialchars($branding['secondary_color'] ?? '#6610f2') ?>">
+                        <input type="color" name="secondary_color" class="form-control form-control-color" value="<?= htmlspecialchars($branding['secondary_color'] ?? '#e41f0d') ?>">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Color de acento</label>
-                        <input type="color" name="accent_color" class="form-control form-control-color" value="<?= htmlspecialchars($branding['accent_color'] ?? '#198754') ?>">
+                        <input type="color" name="accent_color" class="form-control form-control-color" value="<?= htmlspecialchars($branding['accent_color'] ?? '#ffffff') ?>">
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Color de fondo</label>
-                        <input type="color" name="background_color" class="form-control form-control-color" value="<?= htmlspecialchars($branding['background_color'] ?? '#f5f7fb') ?>">
+                        <input type="color" name="background_color" class="form-control form-control-color" value="<?= htmlspecialchars($branding['background_color'] ?? '#ffffff') ?>">
                     </div>
                 </div>
                 <div>
