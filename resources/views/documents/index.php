@@ -16,7 +16,7 @@
             <h2 class="h6 fw-semibold mb-3">Estructura</h2>
             <?php $renderFolder = function ($folder) use (&$renderFolder, $currentFolder) { ?>
                 <li>
-                    <a href="/repositorio?folder=<?= $folder['id'] ?>" class="text-decoration-none <?= $currentFolder === (int)$folder['id'] ? 'fw-semibold text-primary' : '' ?>">
+                    <a href="/repositorio?folder=<?= $folder['id'] ?>" class="text-decoration-none <?= $currentFolder === (int)$folder['id'] ? 'fw-semibold text-accent' : '' ?>">
                         <i class="bi bi-folder2 me-2"></i><?= htmlspecialchars($folder['name']) ?>
                     </a>
                     <?php if (!empty($folder['children'])): ?>
@@ -29,7 +29,7 @@
                 </li>
             <?php }; ?>
             <ul class="ps-0">
-                <li><a href="/repositorio" class="text-decoration-none <?= $currentFolder ? '' : 'fw-semibold text-primary' ?>"><i class="bi bi-house me-2"></i>Inicio</a></li>
+                <li><a href="/repositorio" class="text-decoration-none <?= $currentFolder ? '' : 'fw-semibold text-accent' ?>"><i class="bi bi-house me-2"></i>Inicio</a></li>
                 <?php foreach ($tree as $folder): ?>
                     <?= $renderFolder($folder) ?>
                 <?php endforeach; ?>
@@ -51,7 +51,7 @@
                             <span class="text-muted small ms-2">Visibilidad: <?= htmlspecialchars($document['visibility']) ?></span>
                         </div>
                         <div class="d-flex gap-2">
-                            <a class="btn btn-sm btn-outline-primary" href="<?= htmlspecialchars($document['file_path']) ?>" download><i class="bi bi-download"></i> Descargar</a>
+                            <a class="btn btn-sm btn-outline-primary" href="/repositorio/documento/descargar?id=<?= $document['id'] ?>" download><i class="bi bi-download"></i> Descargar</a>
                             <?php if (in_array(current_user()['role_slug'], ['admin-principal', 'publicador'], true)): ?>
                                 <form method="POST" action="/repositorio/documento/eliminar">
                                     <input type="hidden" name="csrf_token" value="<?= csrf_token() ?>">

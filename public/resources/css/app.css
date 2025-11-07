@@ -1,14 +1,15 @@
 :root {
-    --primary: #0d6efd;
-    --secondary: #6610f2;
-    --accent: #198754;
-    --soft-bg: #f5f7fb;
+    --primary: #051223;
+    --secondary: #e41f0d;
+    --accent: #e41f0d;
+    --soft-bg: #f4f6fb;
     --card-bg: #ffffff;
-    --shadow: 20px 20px 40px rgba(13, 110, 253, 0.12), -20px -20px 40px rgba(255, 255, 255, 0.8);
+    --shadow: 20px 20px 40px rgba(5, 18, 35, 0.14), -20px -20px 40px rgba(255, 255, 255, 0.85);
 }
 
 body {
     background-color: var(--soft-bg);
+    color: var(--primary);
 }
 
 .bg-soft {
@@ -16,27 +17,27 @@ body {
 }
 
 .theme-dark {
-    --soft-bg: #1d1f27;
-    --card-bg: #242734;
-    color: #f0f2f7;
+    --soft-bg: #0f141d;
+    --card-bg: #141c28;
+    color: #f4f6fb;
 }
 
 .theme-dark .topbar,
 .theme-dark .sidebar,
 .theme-dark .widget-card,
 .theme-dark .quicklink-card {
-    background: #242734;
-    color: #f0f2f7;
+    background: #141c28;
+    color: #f4f6fb;
 }
 
 .theme-dark .sidebar-link,
 .theme-dark .top-menu-link {
-    color: #d0d4e4;
+    color: #d7dbea;
 }
 
 .theme-dark .sidebar-link.active,
 .theme-dark .top-menu-link.active {
-    background: rgba(13, 110, 253, 0.25);
+    background: rgba(228, 31, 13, 0.25);
 }
 
 .shadow-soft {
@@ -54,17 +55,18 @@ body {
 }
 
 .top-menu-link {
-    color: #4c4f59;
+    color: rgba(5, 18, 35, 0.72);
     font-weight: 500;
     text-decoration: none;
     padding: 8px 14px;
     border-radius: 12px;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .top-menu-link.active,
 .top-menu-link:hover {
-    background: rgba(13, 110, 253, 0.12);
-    color: var(--primary);
+    background: rgba(228, 31, 13, 0.12);
+    color: var(--secondary);
 }
 
 .sidebar {
@@ -86,14 +88,15 @@ body {
     padding: 10px 16px;
     border-radius: 14px;
     text-decoration: none;
-    color: #4c4f59;
+    color: rgba(5, 18, 35, 0.72);
     font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .sidebar-link.active,
 .sidebar-link:hover {
-    background: rgba(13, 110, 253, 0.12);
-    color: var(--primary);
+    background: rgba(228, 31, 13, 0.12);
+    color: var(--secondary);
 }
 
 .brand-logo {
@@ -104,19 +107,21 @@ body {
 .widget-card {
     border-radius: 20px;
     background: var(--card-bg);
-    box-shadow: 10px 10px 25px rgba(13, 110, 253, 0.12),
+    box-shadow: 10px 10px 25px rgba(5, 18, 35, 0.12),
                 -10px -10px 25px rgba(255, 255, 255, 0.9);
     padding: 24px;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .widget-card:hover {
     transform: translateY(-6px);
+    box-shadow: 12px 12px 32px rgba(5, 18, 35, 0.16),
+                -12px -12px 32px rgba(255, 255, 255, 0.9);
 }
 
 .avatar.placeholder {
-    background: rgba(13, 110, 253, 0.12);
-    color: var(--primary);
+    background: rgba(228, 31, 13, 0.12);
+    color: var(--secondary);
     width: 42px;
     height: 42px;
     border-radius: 50%;
@@ -137,6 +142,7 @@ body {
 
 .fc .fc-daygrid-day-number {
     font-weight: 600;
+    color: var(--primary);
 }
 
 .table-neumorphism {
@@ -146,7 +152,7 @@ body {
 
 .table-neumorphism tbody tr {
     background: var(--card-bg);
-    box-shadow: 8px 8px 18px rgba(13, 110, 253, 0.08),
+    box-shadow: 8px 8px 18px rgba(5, 18, 35, 0.1),
                 -8px -8px 18px rgba(255, 255, 255, 0.85);
     border-radius: 12px;
 }
@@ -174,7 +180,7 @@ body {
     top: 12px;
     width: 10px;
     height: 2px;
-    background: var(--primary);
+    background: var(--secondary);
 }
 
 .quicklink-card {
@@ -184,7 +190,7 @@ body {
     border-radius: 16px;
     padding: 18px;
     background: var(--card-bg);
-    box-shadow: 8px 8px 18px rgba(13, 110, 253, 0.08),
+    box-shadow: 8px 8px 18px rgba(5, 18, 35, 0.1),
                 -8px -8px 18px rgba(255, 255, 255, 0.85);
 }
 
@@ -199,52 +205,53 @@ body {
     min-height: 280px;
     border: none;
     border-radius: 16px;
-    box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.1);
+    box-shadow: 6px 6px 16px rgba(5, 18, 35, 0.14);
 }
 
-.organigram-node {
-    display: inline-block;
-    padding: 16px;
-    margin: 8px;
-    border-radius: 18px;
-    background: var(--card-bg);
-    box-shadow: 8px 8px 16px rgba(13, 110, 253, 0.1),
-                -8px -8px 16px rgba(255, 255, 255, 0.8);
-    min-width: 200px;
+.list-group-item-action:hover {
+    background-color: rgba(228, 31, 13, 0.08);
+    color: var(--secondary);
 }
 
-.organigram-children {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
+.btn-primary {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
 }
 
-@media (max-width: 992px) {
-    .sidebar {
-        position: fixed;
-        top: 72px;
-        left: 0;
-        height: calc(100vh - 72px);
-        z-index: 1030;
-        transform: translateX(-100%);
-    }
-
-    .sidebar.show {
-        transform: translateX(0);
-    }
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #c41a0b;
+    border-color: #c41a0b;
 }
 
-.widget-grid {
-    display: grid;
-    gap: 16px;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.btn-outline-primary {
+    color: var(--secondary);
+    border-color: var(--secondary);
 }
 
-.widget-config {
-    background: var(--card-bg);
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 8px 8px 20px rgba(13, 110, 253, 0.08),
-                -8px -8px 20px rgba(255, 255, 255, 0.85);
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    color: #ffffff;
+}
+
+.badge.bg-primary {
+    background-color: var(--secondary) !important;
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+.text-accent {
+    color: var(--secondary) !important;
+}
+
+a {
+    color: var(--secondary);
+}
+
+a:hover {
+    color: #c41a0b;
 }

@@ -1,14 +1,22 @@
 <?php
-session_start([
-    'cookie_lifetime' => 60 * 60 * 2,
-    'cookie_secure' => false,
-    'cookie_httponly' => true,
-    'use_strict_mode' => true,
-]);
-
-date_default_timezone_set('America/Mexico_City');
-
 $config = require __DIR__ . '/../config/config.php';
+
+$timezone = $config['timezone'] ?? 'America/Mexico_City';
+date_default_timezone_set($timezone);
+
+$sessionLifetime = (int)($config['security']['session_lifetime'] ?? 120) * 60;
+$sessionOptions = [
+    'cookie_lifetime' => $sessionLifetime,
+    'cookie_secure' => !empty($config['security']['https']),
+    'cookie_httponly' => true,
+    'cookie_samesite' => 'Lax',
+    'use_strict_mode' => true,
+];
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start($sessionOptions);
+}
+
 $GLOBALS['config'] = $config;
 
 spl_autoload_register(function ($class) {
